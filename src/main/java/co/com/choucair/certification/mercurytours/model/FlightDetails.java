@@ -9,7 +9,7 @@ public class FlightDetails {
     private String on_day;
     private String back_month;
     private String back_day;
-    private int service_class;
+    private String service_class;
 
     public String getType() {
         return type;
@@ -43,11 +43,11 @@ public class FlightDetails {
         return back_day;
     }
 
-    public int getService_class() {
+    public String getService_class() {
         return service_class;
     }
 
-    public FlightDetails(String type, int passengers, String departing_from, String departing_to, String on_month, String on_day, String back_month, String back_day, int service_class) {
+    public FlightDetails(String type, int passengers, String departing_from, String departing_to, String on_month, String on_day, String back_month, String back_day, String service_class) {
         this.type = type;
         this.passengers = passengers;
         this.departing_from = departing_from;
