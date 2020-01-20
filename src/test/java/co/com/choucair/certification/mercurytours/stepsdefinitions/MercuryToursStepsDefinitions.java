@@ -8,8 +8,6 @@ import co.com.choucair.certification.mercurytours.tasks.FillFlightFinger;
 import co.com.choucair.certification.mercurytours.tasks.Login;
 import co.com.choucair.certification.mercurytours.tasks.OpenThe;
 import co.com.choucair.certification.mercurytours.tasks.SelecFlight;
-import co.com.choucair.certification.mercurytours.userinterface.FlightFinger;
-import co.com.choucair.certification.mercurytours.userinterface.SelectFlights;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -44,6 +42,6 @@ public class MercuryToursStepsDefinitions {
 
     @Then("^He Fill the next book flight form with and finish the itinerary$")
     public void heFillTheNextBookFlightFormWithAndFinishTheItinerary(List<Passanger> passangerList) {
-
+// PENDING TO DO
     }
 }

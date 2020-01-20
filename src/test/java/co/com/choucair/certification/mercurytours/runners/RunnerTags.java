@@ -6,8 +6,8 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "src/test/resources/features/",
-        tags = "@Tag3",
+@CucumberOptions(features = "src/test/resources/features/Mercury_tours.feature",
+        tags = "@Tag1",
         glue = {"co.com.choucair.certification.mercurytours.stepsdefinitions", "co.com.choucair.certification.mercurytours.util"},
         snippets = SnippetType.CAMELCASE)
 public class RunnerTags {
