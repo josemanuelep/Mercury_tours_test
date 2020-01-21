@@ -1,5 +1,6 @@
 package co.com.choucair.certification.mercurytours.tasks;
 
+import co.com.choucair.certification.mercurytours.interactions.SelectCheaptesFlight;
 import co.com.choucair.certification.mercurytours.model.FlightDetails;
 import co.com.choucair.certification.mercurytours.userinterface.FlightFinger;
 import net.serenitybdd.screenplay.Actor;
@@ -26,10 +27,11 @@ public class FillFlightFinger implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getDeparting_to()).from(FlightFinger.SELECT_TO_PORT),
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBack_month()).from(FlightFinger.RETURN_MONTH),
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBack_day()).from(FlightFinger.RETURN_DAY),
-                Click.on(FlightFinger.BTN_NEXT)
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getDepartingFrom()).from(FlightFinger.SELECT_TO_PORT),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBackMonth()).from(FlightFinger.RETURN_MONTH),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBackDay()).from(FlightFinger.RETURN_DAY),
+                Click.on(FlightFinger.BTN_NEXT),
+                SelectCheaptesFlight.theCheap()
         );
     }
 }
