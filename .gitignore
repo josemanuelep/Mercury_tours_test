@@ -49,6 +49,9 @@ hs_err_pid*
 build/
 target/
 
+# Package .json and folder
+package.json
+
 # Ignore Gradle GUI config
 !gradle-wrapper.jar
 
