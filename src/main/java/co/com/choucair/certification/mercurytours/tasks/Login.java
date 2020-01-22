@@ -10,7 +10,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import java.util.List;
 
 import static co.com.choucair.certification.mercurytours.userinterface.LoginPage.*;
-import static co.com.choucair.certification.mercurytours.util.Constants.INDEX;
+import static co.com.choucair.certification.mercurytours.util.Constants.INDEX_0;
 
 public class Login implements Task {
     private List<User> users;
@@ -25,8 +25,8 @@ public class Login implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue(users.get(INDEX).getEmail()).into(EMAIL),
-                Enter.theValue(users.get(INDEX).getPassword()).into(PASSWORD),
+                Enter.theValue(users.get(INDEX_0).getEmail()).into(EMAIL),
+                Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD),
                 Click.on(LOGINBUTTON)
         );
     }

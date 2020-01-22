@@ -10,7 +10,10 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
 import java.util.List;
 
-import static co.com.choucair.certification.mercurytours.util.Constants.INDEX;
+import static co.com.choucair.certification.mercurytours.userinterface.FlightFinger.CHECKBOXES_CLASS;
+import static co.com.choucair.certification.mercurytours.userinterface.FlightFinger.CHECKBOXES_TYPE;
+import static co.com.choucair.certification.mercurytours.util.Constants.INDEX_0;
+import static co.com.choucair.certification.mercurytours.util.Constants.INDEX_1;
 
 public class FillFlightFinger implements Task {
     private List<FlightDetails> flightDetailsList;
@@ -26,9 +29,15 @@ public class FillFlightFinger implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getDeparting_to()).from(FlightFinger.SELECT_TO_PORT),
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBack_month()).from(FlightFinger.RETURN_MONTH),
-                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX).getBack_day()).from(FlightFinger.RETURN_DAY),
+                Click.on(CHECKBOXES_TYPE.resolveAllFor(actor).get(INDEX_0)),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getPassengers().toString()).from(FlightFinger.SELECT_PASSANGERS),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getDepartingFrom()).from(FlightFinger.SELECT_TO_PORT),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getBackMonth()).from(FlightFinger.RETURN_MONTH),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getBackDay()).from(FlightFinger.RETURN_DAY),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getOnMonth()).from(FlightFinger.FROM_MONTH),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getOnDay()).from(FlightFinger.FROM_DAY),
+                SelectFromOptions.byVisibleText(this.flightDetailsList.get(INDEX_0).getAirline()).from(FlightFinger.SELECT_AIRLINE),
+                Click.on(CHECKBOXES_CLASS.resolveAllFor(actor).get(INDEX_1)),
                 Click.on(FlightFinger.BTN_NEXT)
         );
     }
