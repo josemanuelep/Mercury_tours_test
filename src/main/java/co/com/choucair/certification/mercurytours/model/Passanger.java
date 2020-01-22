@@ -5,7 +5,7 @@ public class Passanger {
     private String name;
     private String lastName;
     private String meal;
-    private long cardNumber;
+    private Long cardNumber;
 
     public Passanger() {
         //Default constructor
@@ -35,7 +35,7 @@ public class Passanger {
         this.meal = meal;
     }
 
-    public long getCardNumber() {
+    public Long getCardNumber() {
         return cardNumber;
     }
 

@@ -3,7 +3,7 @@ package co.com.choucair.certification.mercurytours.model;
 public class FlightDetails {
 
     private String type;
-    private int passengers;
+    private Integer passengers;
     private String departingFrom;
     private String departingTo;
     private String onMonth;
@@ -11,12 +11,17 @@ public class FlightDetails {
     private String backMonth;
     private String backDay;
     private String serviceClass;
+    private String airline;
+
+    public String getAirline() {
+        return airline;
+    }
 
     public String getType() {
         return type;
     }
 
-    public int getPassengers() {
+    public Integer getPassengers() {
         return passengers;
     }
 

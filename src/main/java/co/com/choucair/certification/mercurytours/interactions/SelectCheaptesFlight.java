@@ -1,6 +1,5 @@
 package co.com.choucair.certification.mercurytours.interactions;
 
-import co.com.choucair.certification.mercurytours.userinterface.SelectFlights;
 import co.com.choucair.certification.mercurytours.util.GetCheapest;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
@@ -24,10 +23,10 @@ public class SelectCheaptesFlight implements Interaction {
 
         List<WebElementFacade> listOutFlights = CHECKBOXES_OUT_FLIGHT.resolveAllFor(actor);
         List<WebElementFacade> listBackFlights = CHECKBOXES_RETURN_FLIGHT.resolveAllFor(actor);
+
         actor.attemptsTo(
                 Click.on(GetCheapest.flight(listOutFlights)),
-                Click.on( GetCheapest.flight(listBackFlights)),
-                Click.on(SelectFlights.BTN_CONTINUE)
+                Click.on(GetCheapest.flight(listBackFlights))
         );
     }
 }

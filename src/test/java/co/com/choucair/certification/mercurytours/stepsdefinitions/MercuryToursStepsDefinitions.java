@@ -3,11 +3,9 @@ package co.com.choucair.certification.mercurytours.stepsdefinitions;
 import co.com.choucair.certification.mercurytours.model.FlightDetails;
 import co.com.choucair.certification.mercurytours.model.Passanger;
 import co.com.choucair.certification.mercurytours.model.User;
+import co.com.choucair.certification.mercurytours.questions.IsBought;
 import co.com.choucair.certification.mercurytours.questions.IsLoggedIn;
-import co.com.choucair.certification.mercurytours.tasks.FillFlightFinger;
-import co.com.choucair.certification.mercurytours.tasks.Login;
-import co.com.choucair.certification.mercurytours.tasks.OpenThe;
-import co.com.choucair.certification.mercurytours.interactions.SelectCheaptesFlight;
+import co.com.choucair.certification.mercurytours.tasks.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,13 +34,19 @@ public class MercuryToursStepsDefinitions {
         theActorCalled("Jose").wasAbleTo(FillFlightFinger.theForm(flightDetails));
     }
 
+
     @When("^He select the cheapest both flights$")
     public void heSelectTheCheapestBothFlights() {
-        theActorInTheSpotlight().attemptsTo(SelectCheaptesFlight.theCheap());
+        theActorInTheSpotlight().attemptsTo(SelectTheCheapest.flight());
     }
 
-    @Then("^He Fill the next book flight form with and finish the itinerary$")
-    public void heFillTheNextBookFlightFormWithAndFinishTheItinerary(List<Passanger> passangerList) {
-// PENDING TO DO
+    @When("^He Fill the next book flight form with$")
+    public void heFillTheNextBookFlightFormWith(List<Passanger> passangerList) {
+        theActorInTheSpotlight().attemptsTo(PassangerFill.theForm(passangerList));
+    }
+
+    @Then("^finish the itinerary seeing a message \"([^\"]*)\"$")
+    public void finishTheItinerarySeeingAMessage(String arg1) {
+        theActorInTheSpotlight().should(seeThat(IsBought.thePassage(arg1)));
     }
 }

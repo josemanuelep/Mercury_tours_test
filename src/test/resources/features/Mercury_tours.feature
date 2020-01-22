@@ -18,9 +18,10 @@ Feature: Tours fly
   @Tag3
   Scenario: Searching flights
     Given He Fill Flight Details and Preferences with the data
-      | type       | passengers | departingFrom | onMonth | onDay | departingTo | backMonth | backDay | serviceClass  |
-      | Round Trip | 1          | Acapulco      | January | 25    | London      | February  | 15      | Economy class |
+      | type    | passengers | departingFrom | airline          | onMonth | onDay | departingTo | backMonth | backDay | serviceClass  |
+      | One Way | 1          | London        | Unified Airlines | January | 25    | New York    | April     | 18      | Economy class |
     When He select the cheapest both flights
-    Then He Fill the next book flight form with and finish the itinerary
-      | name        | lastName          | meal | cardNumber    |
-      | Jose Manuel | Echeverri Palacio |      | 1314654611212 |
+    And He Fill the next book flight form with
+      | name        | lastName          | meal  | cardNumber    |
+      | Jose Manuel | Echeverri Palacio | Hindu | 1314654611212 |
+    Then finish the itinerary seeing a message "Your itinerary has been booked!"

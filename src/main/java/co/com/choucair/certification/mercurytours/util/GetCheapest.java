@@ -8,16 +8,20 @@ import java.util.TreeMap;
 
 public class GetCheapest {
 
+    private GetCheapest() {
+        //Default constructor
+    }
+
     public static WebElementFacade flight(List<WebElementFacade> listPrices) {
 
-        TreeMap<String, WebElementFacade> tree_map = new TreeMap<>();
+        TreeMap<String, WebElementFacade> treeMap = new TreeMap<>();
 
         for (int i = 0; i < listPrices.size(); i++) {
-            tree_map.put(listPrices.get(i).getAttribute("value").split("\\$")[2], listPrices.get(i));
+            treeMap.put(listPrices.get(i).getValue().split("\\$")[2], listPrices.get(i));
         }
-        NavigableMap<String, WebElementFacade> ranking = tree_map.descendingMap();
-
-        return ranking.get(ranking.lastKey());
+        NavigableMap<String, WebElementFacade> ranking = treeMap.descendingMap();
+        String lastIndex = ranking.firstKey();
+        return ranking.get(lastIndex);
     }
 
 

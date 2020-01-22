@@ -1,10 +1,7 @@
 package co.com.choucair.certification.mercurytours.questions;
 
-import net.serenitybdd.core.pages.WebElementExpectations;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.Attribute;
 
 import static co.com.choucair.certification.mercurytours.userinterface.FlightFinger.BANNER_LOGIN;
 
