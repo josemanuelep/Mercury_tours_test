@@ -5,10 +5,12 @@ import co.com.choucair.certification.mercurytours.model.Passanger;
 import co.com.choucair.certification.mercurytours.model.User;
 import co.com.choucair.certification.mercurytours.questions.IsBought;
 import co.com.choucair.certification.mercurytours.questions.IsLoggedIn;
+import co.com.choucair.certification.mercurytours.questions.IsSignin;
 import co.com.choucair.certification.mercurytours.tasks.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.actions.Click;
 
 import java.util.List;
 
@@ -49,4 +51,21 @@ public class MercuryToursStepsDefinitions {
     public void finishTheItinerarySeeingAMessage(String arg1) {
         theActorInTheSpotlight().should(seeThat(IsBought.thePassage(arg1)));
     }
+
+    @Given("^Open the aplication and go to register form$")
+    public void openTheAplicationAndGoToRegisterForm() {
+        theActorCalled("Jose").wasAbleTo(OpenThe.page());
+    }
+
+    @When("^He fills the inputs to register$")
+    public void heFillsTheInputsToRegister(List<Passanger> users) {
+        theActorCalled("Jose").wasAbleTo(Register.inTheForm(users));
+    }
+
+
+    @Then("^he see a success message$")
+    public void heSeeASuccessMessage() {
+        theActorInTheSpotlight().should(seeThat(IsSignin.inThePage("Dear Jose Manuel Echeverri Palacio,")));
+    }
+
 }

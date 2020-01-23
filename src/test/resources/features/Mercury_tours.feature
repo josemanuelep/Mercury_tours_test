@@ -26,9 +26,4 @@ Feature: Tours fly
       | Jose Manuel | Echeverri Palacio | Hindu | 1314654611212 |
     Then finish the itinerary seeing a message "Your itinerary has been booked!"
 
-  @Tag4
-  Scenario: Sigin in the Mercury tours page
-    Given He fills the inputs to register
-      | email                     | password |
-      | jose.echeverri@upb.edu.co | 123456   |
-    Then he see a success message
+
